@@ -39,7 +39,7 @@ IF(WIN32)
                   -D_SCL_SECURE_NO_WARNINGS -DGDAL_COMPILATION)
   IF(MSVC)
     ADD_DEFINITIONS(-D_WIN32 -DWIN32_LEAN_AND_MEAN)
-    ADD_DEFINITIONS("/wd4267 /wd4244 /wd4251 /wd4018 /wd4800 /wd4293 /wd4805 /wd4305")
+    ADD_DEFINITIONS("/wd4267 /wd4244 /wd4251 /wd4018 /wd4800 /wd4293 /wd4805 /wd4305 /wd4005 /wd4273")
     LIST(APPEND EXT_LIBS "ws2_32.lib")
   ENDIF()
 
@@ -53,6 +53,7 @@ SET(GDAL_Components
     ogr
     alg
 	  gcore
+    gnm
 	  frmts
 )
 

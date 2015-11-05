@@ -9,4 +9,4 @@ INCLUDE_DIRECTORIES(${gdal_gnm_DIR}
                     ${gdal_gnm_DIR}/gnm_frmts
                     ${gdal_gnm_DIR}/gnm_frmts/db
                     ${gdal_gnm_DIR}/gnm_frmts/file)
-FILE ( GLOB gdal_gcore_HDRS ${gdal_gcore_DIR}/*.h)  
+FILE ( GLOB gdal_gnm_HDRS ${gdal_gnm_DIR}/*.h)  

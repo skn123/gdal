@@ -27,5 +27,6 @@ INSTALL(FILES
         ${gdal_port_HDRS} 
         ${gdal_alg_HDRS} 
         ${gdal_ogr_HDRS}
+        ${gdal_gnm_HDRS}
         ${INSTALL_HEADERS}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
