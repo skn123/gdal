@@ -1,0 +1,50 @@
+#-------------------------------------------------------------------------------
+#
+# gdalConfig.cmake :  CMake configuration file for external projects.
+#
+# This file is configured by gdal and used by the Usegdal.cmake module
+# to load gdal's settings for an external project.
+#-------------------------------------------------------------------------------
+
+#All files will be relative to this file
+GET_FILENAME_COMPONENT(gdal_CONFIG_PATH "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+# gdal's include file directories.
+SET(gdal_INCLUDE_DIRS ${gdal_CONFIG_PATH}/../include)
+
+# gdal's library directories.
+SET(gdal_LIBRARY_DIRS ${gdal_CONFIG_PATH}/../lib)
+
+# The location of the Usegdal.cmake file.
+SET(gdal_USE_FILE ${gdal_CONFIG_PATH}/Usegdal.cmake)
+
+# A list of all libraries for gdal.  
+SET(gdal_LIBRARIES 
+    optimized gdal
+    debug     gdal_d)
+
+#------------------------------------------------------------------------------#
+#In addition, we need OpenCL and hdf5 to be loaded. However, we enable the flags
+#that will pull out those dependencies
+#------------------------------------------------------------------------------#
+IF (NOT NonModularLibrary_OpenCL)
+  SET(NonModularLibrary_OpenCL ON CACHE BOOL "Use OpenCL Libraries" FORCE)
+ENDIF()
+IF (NOT NonModularLibrary_hdf5)
+  SET(NonModularLibrary_hdf5 ON CACHE BOOL "Use hdf5 Libraries" FORCE)
+ENDIF()
+
+#------------------------------------------------------------------------------#
+#Copy the respective run time libraries
+#------------------------------------------------------------------------------#
+# The gdal Runtime directory.
+SET(gdal_BINARY_DIR "${gdal_CONFIG_PATH}/../bin")
+SET(gdal_DEBUG   ${gdal_BINARY_DIR}/${LIB_PREFIX}gdal_d${LIB_EXTN})
+SET(gdal_RELEASE ${gdal_BINARY_DIR}/${LIB_PREFIX}gdal${LIB_EXTN})
+LIST(APPEND DEBUG_LIBS_TO_BE_COPIED   ${gdal_DEBUG})
+LIST(APPEND RELEASE_LIBS_TO_BE_COPIED ${gdal_RELEASE})
+
+
+
+
+

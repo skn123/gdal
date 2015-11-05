@@ -31,6 +31,7 @@
 
 #include "cpl_conv.h"
 #include "cpl_vsi.h"
+#include "gdal.h"
 
 #include <ctype.h>
 

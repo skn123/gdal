@@ -2244,7 +2244,7 @@ char *OGRGeometry::exportToGML( const char* const * papszOptions ) const
 char *OGRGeometry::exportToKML() const
 {
 #ifdef OGR_ENABLED
-    return OGR_G_ExportToKML( (OGRGeometryH) this, NULL );
+	return NULL;// OGR_G_ExportToKML((OGRGeometryH) this, NULL);
 #else
     CPLError( CE_Failure, CPLE_AppDefined,
               "OGRGeometry::exportToKML() not supported in builds without OGR drivers." );

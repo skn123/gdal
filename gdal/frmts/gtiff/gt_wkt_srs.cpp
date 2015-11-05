@@ -58,12 +58,13 @@ CPL_CVSID("$Id$")
 #  define GTIFAtof CPLAtof
 #endif
 
-CPL_C_START
+/*CPL_C_START
 #ifndef INTERNAL_LIBGEOTIFF
 void CPL_DLL gtSetCSVFilenameHook( const char *(*)(const char *) );
 #define SetCSVFilenameHook gtSetCSVFilenameHook
 #endif
 CPL_C_END
+*/
 
 // To remind myself not to use CPLString in this file!
 #define CPLString Please_do_not_use_CPLString_in_this_file
